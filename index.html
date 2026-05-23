@@ -3,56 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iPhone Checker</title>
+<title>iPhone Pro Inspection Tool</title>
 
 <style>
+
 body{
-    font-family: Arial;
+    font-family:Arial,sans-serif;
     background:#0f172a;
     color:white;
+    margin:0;
     padding:20px;
 }
-.container{max-width:800px;margin:auto;}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
 
 .card{
     background:#1e293b;
     padding:20px;
-    border-radius:16px;
-    margin-bottom:15px;
+    border-radius:18px;
+    margin-bottom:20px;
 }
 
-select,input{
+h1,h2{
+    margin-top:0;
+}
+
+select,input[type="number"]{
     width:100%;
-    padding:10px;
-    border-radius:10px;
+    padding:12px;
+    border:none;
+    border-radius:12px;
     margin-top:10px;
+    font-size:16px;
 }
 
 .check{
-    margin:8px 0;
+    margin:10px 0;
 }
 
 button{
     width:100%;
-    padding:15px;
+    padding:16px;
     border:none;
-    border-radius:12px;
+    border-radius:14px;
     background:#2563eb;
     color:white;
     font-size:18px;
+    cursor:pointer;
 }
 
 .result{
     margin-top:20px;
-    padding:20px;
-    border-radius:12px;
+    padding:25px;
+    border-radius:18px;
     text-align:center;
-    font-size:22px;
 }
 
-.safe{background:#166534;}
-.mid{background:#a16207;}
-.bad{background:#991b1b;}
+.safe{
+    background:#166534;
+}
+
+.caution{
+    background:#a16207;
+}
+
+.bad{
+    background:#991b1b;
+}
+
+.score{
+    font-size:55px;
+    font-weight:bold;
+}
+
+.note{
+    color:#94a3b8;
+    font-size:14px;
+}
+
 </style>
 </head>
 
@@ -60,18 +91,57 @@ button{
 
 <div class="container">
 
-<h1>📱 iPhone Inspection Tool</h1>
+<h1>📱 iPhone Pro Inspection Tool</h1>
 
 <div class="card">
-<h2>Device Info</h2>
+
+<h2>📋 Device Information</h2>
 
 <select id="model">
+
+<option>iPhone X</option>
+<option>iPhone XR</option>
+<option>iPhone XS</option>
+<option>iPhone XS Max</option>
+
 <option>iPhone 11</option>
+<option>iPhone 11 Pro</option>
+<option>iPhone 11 Pro Max</option>
+
+<option>iPhone SE 2</option>
+
+<option>iPhone 12 Mini</option>
 <option>iPhone 12</option>
+<option>iPhone 12 Pro</option>
+<option>iPhone 12 Pro Max</option>
+
+<option>iPhone 13 Mini</option>
 <option>iPhone 13</option>
+<option>iPhone 13 Pro</option>
+<option>iPhone 13 Pro Max</option>
+
+<option>iPhone SE 3</option>
+
 <option>iPhone 14</option>
+<option>iPhone 14 Plus</option>
+<option>iPhone 14 Pro</option>
+<option>iPhone 14 Pro Max</option>
+
 <option>iPhone 15</option>
+<option>iPhone 15 Plus</option>
+<option>iPhone 15 Pro</option>
+<option>iPhone 15 Pro Max</option>
+
 <option>iPhone 16</option>
+<option>iPhone 16 Plus</option>
+<option>iPhone 16 Pro</option>
+<option>iPhone 16 Pro Max</option>
+
+<option>iPhone 17</option>
+<option>iPhone 17 Air</option>
+<option>iPhone 17 Pro</option>
+<option>iPhone 17 Pro Max</option>
+
 </select>
 
 <select id="storage">
@@ -82,88 +152,219 @@ button{
 <option>1TB</option>
 </select>
 
-<input type="number" id="battery" placeholder="Battery Health % (0-100)">
+<input type="number" id="battery" placeholder="Battery Health %">
+
 </div>
 
 <div class="card">
-<h2>Basic Checks</h2>
+
+<h2>✅ Basic Checks</h2>
+
 <div class="check"><input type="checkbox" class="good"> iCloud OFF</div>
 <div class="check"><input type="checkbox" class="good"> Find My OFF</div>
 <div class="check"><input type="checkbox" class="good"> No physical damage</div>
+<div class="check"><input type="checkbox" class="good"> Original display quality</div>
+<div class="check"><input type="checkbox" class="good"> SIM tray IMEI matches</div>
+<div class="check"><input type="checkbox" class="good"> Housing/frame original</div>
+
 </div>
 
 <div class="card">
-<h2>Panic / Restart</h2>
-<div class="check"><input type="checkbox" class="good"> No restart issue</div>
+
+<h2>⚠️ Panic / Heating</h2>
+
+<div class="check"><input type="checkbox" class="good"> No random restart</div>
+<div class="check"><input type="checkbox" class="good"> No overheating</div>
+
 <div class="check"><input type="checkbox" class="bad"> Panic logs found</div>
-<div class="check"><input type="checkbox" class="bad"> Overheating restart</div>
+<div class="check"><input type="checkbox" class="bad"> Restart when hot</div>
+<div class="check"><input type="checkbox" class="bad"> Phone heats abnormally</div>
+
+<p class="note">
+Repeated panic logs may indicate motherboard or IC problems.
+</p>
+
 </div>
 
 <div class="card">
-<h2>Camera / Face ID</h2>
-<div class="check"><input type="checkbox" class="good"> Face ID OK</div>
-<div class="check"><input type="checkbox" class="good"> Cameras OK</div>
-<div class="check"><input type="checkbox" class="bad"> Camera issue</div>
+
+<h2>📷 Camera / Face ID</h2>
+
+<div class="check"><input type="checkbox" class="good"> Face ID working</div>
+<div class="check"><input type="checkbox" class="good"> All cameras working</div>
+<div class="check"><input type="checkbox" class="good"> True Tone available</div>
+<div class="check"><input type="checkbox" class="good"> Focus working properly</div>
+<div class="check"><input type="checkbox" class="good"> Night mode working</div>
+
+<div class="check"><input type="checkbox" class="bad"> Camera shaking</div>
+<div class="check"><input type="checkbox" class="bad"> Lens fog/water inside</div>
+<div class="check"><input type="checkbox" class="bad"> Face ID failed</div>
+
 </div>
 
 <div class="card">
-<h2>Network</h2>
-<div class="check"><input type="checkbox" class="good"> Signal OK</div>
+
+<h2>📺 Display Checks</h2>
+
+<div class="check"><input type="checkbox" class="good"> No OLED burn-in</div>
+<div class="check"><input type="checkbox" class="good"> No dead pixels</div>
+<div class="check"><input type="checkbox" class="good"> Touch fully responsive</div>
+<div class="check"><input type="checkbox" class="good"> 120Hz smooth (Pro models)</div>
+
+<div class="check"><input type="checkbox" class="bad"> Ghost touch issue</div>
+<div class="check"><input type="checkbox" class="bad"> Green line issue</div>
+
+</div>
+
+<div class="card">
+
+<h2>📡 Signal / Connectivity</h2>
+
+<div class="check"><input type="checkbox" class="good"> Signal stable</div>
+<div class="check"><input type="checkbox" class="good"> WiFi working</div>
+<div class="check"><input type="checkbox" class="good"> Bluetooth working</div>
+<div class="check"><input type="checkbox" class="good"> eSIM working</div>
+
 <div class="check"><input type="checkbox" class="bad"> No Service issue</div>
+<div class="check"><input type="checkbox" class="bad"> Signal drops randomly</div>
+
 </div>
 
-<button onclick="checkPhone()">Analyze</button>
+<div class="card">
+
+<h2>🔋 Battery / Charging</h2>
+
+<div class="check"><input type="checkbox" class="good"> Charging normal</div>
+<div class="check"><input type="checkbox" class="good"> Battery drain normal</div>
+<div class="check"><input type="checkbox" class="good"> No service message</div>
+
+<div class="check"><input type="checkbox" class="bad"> Battery service warning</div>
+<div class="check"><input type="checkbox" class="bad"> Unknown battery part</div>
+<div class="check"><input type="checkbox" class="bad"> Charging disconnect issue</div>
+
+</div>
+
+<div class="card">
+
+<h2>🔊 Audio / Sensors</h2>
+
+<div class="check"><input type="checkbox" class="good"> Speakers clear</div>
+<div class="check"><input type="checkbox" class="good"> Mic working</div>
+<div class="check"><input type="checkbox" class="good"> Auto rotate working</div>
+<div class="check"><input type="checkbox" class="good"> Proximity sensor working</div>
+
+<div class="check"><input type="checkbox" class="bad"> Low speaker volume</div>
+<div class="check"><input type="checkbox" class="bad"> Sensor missing issue</div>
+
+</div>
+
+<div class="card">
+
+<h2>💧 Water Damage</h2>
+
+<div class="check"><input type="checkbox" class="good"> No water damage signs</div>
+
+<div class="check"><input type="checkbox" class="bad"> LCI indicator RED</div>
+<div class="check"><input type="checkbox" class="bad"> Corrosion/rust inside</div>
+
+</div>
+
+<div class="card">
+
+<h2>🛠️ Repair / Service History</h2>
+
+<div class="check"><input type="checkbox" class="good"> 3uTools verification PASS</div>
+<div class="check"><input type="checkbox" class="good"> Serial numbers match</div>
+<div class="check"><input type="checkbox" class="good"> No unknown parts</div>
+
+<div class="check"><input type="checkbox" class="bad"> Display service warning</div>
+<div class="check"><input type="checkbox" class="bad"> Non-genuine camera warning</div>
+<div class="check"><input type="checkbox" class="bad"> IMEI mismatch</div>
+
+</div>
+
+<button onclick="analyzePhone()">Analyze Device</button>
 
 <div id="result"></div>
 
 </div>
 
 <script>
-function checkPhone(){
+
+function analyzePhone(){
 
 let score = 100;
 
 let battery = document.getElementById("battery").value;
+
 if(battery){
-    score -= (100 - battery);
+score -= (100 - battery) * 0.3;
 }
 
-// good checks
-document.querySelectorAll(".good").forEach(i=>{
-    if(!i.checked) score -= 5;
+document.querySelectorAll(".good").forEach(item=>{
+if(!item.checked){
+score -= 4;
+}
 });
 
-// bad checks
-document.querySelectorAll(".bad").forEach(i=>{
-    if(i.checked) score -= 20;
+document.querySelectorAll(".bad").forEach(item=>{
+if(item.checked){
+score -= 18;
+}
 });
 
-if(score < 0) score = 0;
+if(score < 0){
+score = 0;
+}
 
-let cls = "";
+score = Math.round(score);
+
 let text = "";
+let cls = "";
+let summary = "";
 
-if(score >= 85){
-    cls = "safe";
-    text = "SAFE TO BUY ✅";
+if(score >= 90){
+
+cls = "safe";
+text = "✅ SAFE TO BUY";
+summary = "Device looks healthy with no major hardware risks.";
+
 }
-else if(score >= 60){
-    cls = "mid";
-    text = "BUY WITH CAUTION ⚠️";
+else if(score >= 70){
+
+cls = "caution";
+text = "⚠️ BUY WITH CAUTION";
+summary = "Possible repair history or minor hardware concerns detected.";
+
 }
 else{
-    cls = "bad";
-    text = "AVOID ❌";
+
+cls = "bad";
+text = "❌ AVOID THIS DEVICE";
+summary = "High-risk device due to panic logs, hardware, or water damage issues.";
+
 }
 
 document.getElementById("result").innerHTML = `
+
 <div class="result ${cls}">
-${score}/100 <br><br>
-${text}
+
+<div class="score">
+${score}/100
 </div>
+
+<h2>${text}</h2>
+
+<p>
+${summary}
+</p>
+
+</div>
+
 `;
 
 }
+
 </script>
 
 </body>
